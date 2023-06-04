@@ -69,3 +69,14 @@ Request body:
 ```bash
 nohup uvicorn main:app --host '0.0.0.0' --port '8080' --reload &
 ```
+
+## Future Improvements
+- Implement authentication to secure the API.
+- Implement a frontend to make the API more user-friendly.
+- Implement a database to store the availability data.
+- Implement a cron job to run the API at regular intervals and store the availability data in the database.
+- Implement a notification system to notify the user when the desired iPhone model is available in the desired city.
+- Implement a feature to check the availability of other Apple products as well.
+  
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
