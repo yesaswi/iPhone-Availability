@@ -24,7 +24,7 @@ git clone https://github.com/yesaswi/iPhone-Availability.git
 2. Navigate to the project directory:
 
 ```bash
-cd iphone-availability-checker
+cd iPhone-Availability
 ```
 
 3. Install the required packages:
