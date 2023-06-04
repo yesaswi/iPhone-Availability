@@ -92,11 +92,16 @@ class AvailabilityChecker:
             return None
 
         apple_stores = response['body']['content']['pickupMessage']['stores']
-
+        logging.info(f"Checking availability for {color} {model} in {city}...")
+        available = []
         for store in apple_stores:
+            logging.info(f"Checking {store['storeName']}...")
             if "Available" in store['partsAvailability'][model]['pickupSearchQuote']:
-                logging.info(f"Availability found for {color} {model} in {city}")
-                return [city, color, model, store['storeName'], store['partsAvailability'][model]['pickupSearchQuote']]
+                logging.info(f"Availability found for {color} {model} in {city} - {store['storeName']}")
+                # Instead of returning the very first store. Get all the stores that have the iPhone available.
+                available.append([city, color, model, store['storeName'], store['partsAvailability'][model]['pickupSearchQuote']])
+        if available:
+            return available
 
         logging.info(f"N/A in {city} for {color} {model}")
         return None

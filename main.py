@@ -38,9 +38,11 @@ async def availability_report(city_info: CityInfo):
     availability_report = []
 
     for color, model in IPHONE_MODELS.items():
-        report = availability_checker.check_availability(city_info.city, zip_code, model, color)
-        if report:
-            availability_report.append(report)
+        reports = availability_checker.check_availability(city_info.city, zip_code, model, color)
+        if reports:
+        # Flatten the list of reports before appending them
+            for report in reports:
+                availability_report.append(report)
 
     # Creating a DataFrame from the list
     df = pd.DataFrame(availability_report, columns=['City', 'Color', 'Model', 'StoreName', 'Availability'])
